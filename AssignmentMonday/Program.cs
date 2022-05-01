@@ -24,8 +24,7 @@ namespace ConsoleApp92
 
                 var emp = employee.Where(p => p.Age > 25)
 
-                 .OrderByDescending(p => p.Age)
-                            .Select(x => (EmpName: x.Name, EmpAge: x.Age, EmpID: x.ID, EmpGender: x.Gender, EmpSalary: x.Salary));
+                 .OrderByDescending(p => p.Age);
 
 
 
@@ -34,18 +33,19 @@ namespace ConsoleApp92
                 foreach (var item in emp)
                 {
 
-                    Console.WriteLine($"    Name:{item.EmpName}:   Age: {item.EmpAge}years  Gender :{item.EmpGender} ID: {item.EmpID} Salary : {item.EmpSalary} Naira  ");
+                    Console.WriteLine($"    Name:{item.Name}:   Age: {item.Age}years  Gender :{item.Gender} ID: {item.ID} Salary : {item.Salary} Naira  ");
                 }
 
                
                 Console.WriteLine("\n*********************************************************************************\n");
 
-                var emp2 = employee.Where(p => p.Gender == 'F')
-                      .Select(x => (EmpName: x.Name, EmpAge: x.Age, EmpID: x.ID, EmpGender: x.Gender, EmpSalary: x.Salary));
+                var emp2 = employee.Where(p => p.Gender == 'F');
+                   
+                      
                 foreach (var gender in emp2)
                 {
                    
-                    Console.WriteLine($"    Name:{gender.EmpName}:   Age: {gender.EmpAge}years  Gender :{gender.EmpGender} ID: {gender.EmpID} Salary : {gender.EmpSalary} Naira  ");
+                    Console.WriteLine($"    Name:{gender.Name}:   Age: {gender.ID}years  Gender :{gender.Age} ID: {gender.Gender} Salary : {gender.Salary} Naira  ");
 
 
 
@@ -61,12 +61,16 @@ namespace ConsoleApp92
                     Console.WriteLine($"    Name:{a.EmpName}:   Age: {a.EmpAge}years  Gender :{a.EmpGender} ID: {a.EmpID} Salary : {a.EmpSalary} Naira  ");
                 }
                 Console.WriteLine("\n*********************************************************************************\n");
-                var emp4 = employee.Where(p => p.ID <= 8)
-              .Select(x => (EmpName: x.Name, EmpAge: x.Age, EmpID: x.ID, EmpGender: x.Gender, EmpSalary: x.Salary));
+                var emp4 = employee.Where(x => x.Gender == 'F')
+                    .Where(p => p.ID > 1 && p.ID < 8);
+            
                 foreach(var a in emp4)
                 {
-                    Console.WriteLine($"    Name:{a.EmpName}:   Age: {a.EmpAge}years  Gender :{a.EmpGender} ID: {a.EmpID} Salary : {a.EmpSalary} Naira  ");
+                    Console.WriteLine($"    Name:{a.Name}:   Age: {a.Age}years  Gender :{a.Gender} z ");
                 }
+           
+
+
             }
         }
     }
